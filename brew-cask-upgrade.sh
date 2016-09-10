@@ -43,7 +43,7 @@ brew-upgrade() {
         printf "%-40s | %-20s | %-20s\n" "$BREW_NAME" "$NEW_VERSION" "$IS_CURRENT_VERSION_INSTALLED"
 
         # Install if not up-to-date and not excluded
-        if [[ "$CURRENT_VERSION_INSTALLED" == false ]] && [[ ${BREW_EXCLUDES} != *"$BREW_NAME"* ]]; then
+        if [[ "$IS_CURRENT_VERSION_INSTALLED" == false ]] && [[ ${BREW_EXCLUDES} != *"$BREW_NAME"* ]]; then
             brew upgrade $item
         fi
 
