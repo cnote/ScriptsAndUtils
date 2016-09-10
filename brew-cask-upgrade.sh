@@ -75,6 +75,7 @@ cask-upgrade() {
 
         # Install if not up-to-date and not excluded
         if [[ "$IS_CURRENT_VERSION_INSTALLED" != true ]] && [[ ${CASK_EXCLUDES} != *"$CASK_NAME"* ]]; then
+            brew cask uninstall "$CASK_NAME" --force
             brew cask install "$CASK_NAME" --force
         fi
 
