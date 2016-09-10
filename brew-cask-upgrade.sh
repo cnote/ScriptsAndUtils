@@ -43,7 +43,7 @@ brew-upgrade() {
         printf "%-40s | %-20s | %-20s\n" "$BREW_NAME" "$NEW_VERSION" "$IS_CURRENT_VERSION_INSTALLED"
 
         # Install if not up-to-date and not excluded
-        if [[ "$IS_CURRENT_VERSION_INSTALLED" == false ]] && [[ ${BREW_EXCLUDES} != *"$BREW_NAME"* ]]; then
+        if [[ "$IS_CURRENT_VERSION_INSTALLED" != true ]] && [[ ${BREW_EXCLUDES} != *"$BREW_NAME"* ]]; then
             brew upgrade $item
         fi
 
@@ -74,7 +74,7 @@ cask-upgrade() {
         printf "%-40s | %-20s | %-20s\n" "$CASK_NAME" "$NEW_VERSION" "$IS_CURRENT_VERSION_INSTALLED"
 
         # Install if not up-to-date and not excluded
-        if [[ "$IS_CURRENT_VERSION_INSTALLED" == false ]] && [[ ${CASK_EXCLUDES} != *"$CASK_NAME"* ]]; then
+        if [[ "$IS_CURRENT_VERSION_INSTALLED" != true ]] && [[ ${CASK_EXCLUDES} != *"$CASK_NAME"* ]]; then
             brew cask install "$CASK_NAME" --force
         fi
 
